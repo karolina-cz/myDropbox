@@ -11,6 +11,7 @@ import { PreLoginViewComponent } from './pre-login-view/pre-login-view.component
 import { UserMainViewComponent } from './user-main-view/user-main-view.component';
 import { UserFilesViewComponent } from './user-files-view/user-files-view.component';
 import { FileManagementSidebarComponent } from './user-files-view/file-management-sidebar/file-management-sidebar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FileManagementSidebarComponent } from './user-files-view/file-managemen
     FileManagementSidebarComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
