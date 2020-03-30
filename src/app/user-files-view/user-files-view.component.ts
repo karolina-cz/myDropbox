@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faFile} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-user-files-view',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-files-view.component.css']
 })
 export class UserFilesViewComponent implements OnInit {
-
+  faFile = faFile;
   constructor() { }
 
   ngOnInit(): void {

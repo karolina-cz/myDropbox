@@ -12,6 +12,12 @@ import { UserMainViewComponent } from './user-main-view/user-main-view.component
 import { UserFilesViewComponent } from './user-files-view/user-files-view.component';
 import { FileManagementSidebarComponent } from './user-files-view/file-management-sidebar/file-management-sidebar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {Routes, RouterModule} from '@angular/router';
+
+const appRoutes: Routes = [
+  { path:'files', component: UserFilesViewComponent },
+  { path:'account', component: AccountViewComponent },
+];
 
 @NgModule({
   declarations: [
@@ -28,7 +34,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
   ],
   imports: [
     BrowserModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
