@@ -43,8 +43,8 @@ a, a:hover, a:focus {
 
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 215px;
+    max-width: 215px;
     min-height: 100vh;
     background: #7386D5;
     color: #fff;
