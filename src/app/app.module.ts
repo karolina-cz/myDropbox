@@ -2,15 +2,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { MainFrameComponent } from './main-frame/main-frame.component';
-import { SidebarComponent } from './sidebar/sidebar.component';
-import { SidebarElementComponent } from './sidebar/sidebar-element/sidebar-element.component';
-import { HeaderComponent } from './header/header.component';
-import { AccountViewComponent } from './account-view/account-view.component';
-import { PreLoginViewComponent } from './pre-login-view/pre-login-view.component';
-import { UserMainViewComponent } from './user-main-view/user-main-view.component';
-import { UserFilesViewComponent } from './user-files-view/user-files-view.component';
-import { FileManagementSidebarComponent } from './user-files-view/file-management-sidebar/file-management-sidebar.component';
+import { MainFrameComponent } from './components/general-view/main-frame/main-frame.component';
+import { SidebarComponent } from './components/general-view/sidebar/sidebar.component';
+import { SidebarElementComponent } from './components/general-view/sidebar/sidebar-element/sidebar-element.component';
+import { HeaderComponent } from './components/general-view/header/header.component';
+import { AccountViewComponent } from './components/user/account-view/account-view.component';
+import { PreLoginViewComponent } from './components/general-view/pre-login-view/pre-login-view.component';
+import { UserMainViewComponent } from './components/user/user-main-view/user-main-view.component';
+import { UserFilesViewComponent } from './components/files/user-files-view/user-files-view.component';
+import { FileManagementSidebarComponent } from './components/files/user-files-view/file-management-sidebar/file-management-sidebar.component';
 import {AuthService} from './services/user-auth.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
@@ -20,11 +20,11 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './verify-email/verify-email.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { SignInComponent } from './components/user/sign-in/sign-in.component';
+import { SignUpComponent } from './components/user/sign-up/sign-up.component';
+import { ForgotPasswordComponent } from './components/user/forgot-password/forgot-password.component';
+import { VerifyEmailComponent } from './components/user/verify-email/verify-email.component';
+import { DashboardComponent } from './components/user/dashboard/dashboard.component';
 
 const appRoutes: Routes = [
   { path:'files', component: UserFilesViewComponent },
