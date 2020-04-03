@@ -51,20 +51,21 @@ export class AuthService {
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
-        //this.SendVerificationMail();
+        this.SendVerificationMail(result.user);
         this.SetUserData(result.user);
+
       }).catch((error) => {
         window.alert(error.message)
       })
   }
 
-  // Send email verfificaiton when new user sign up
-  // SendVerificationMail() {
-  //   return this.afAuth.currentUser.sendEmailVerification()
-  //   .then(() => {
-  //     this.router.navigate(['verify-email-address']);
-  //   })
-  // }
+  //Send email verfificaiton when new user sign up
+  SendVerificationMail(user) {
+    return user.sendEmailVerification()
+    .then(() => {
+      this.router.navigate(['verify-email-address']);
+    })
+  }
 
   // Reset Forggot password
   ForgotPassword(passwordResetEmail) {
