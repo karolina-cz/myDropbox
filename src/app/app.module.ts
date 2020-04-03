@@ -25,6 +25,7 @@ import { SignUpComponent } from './components/user/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/user/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/user/verify-email/verify-email.component';
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
+import { DropzoneDirective } from './directives/dropzone.directive';
 
 const appRoutes: Routes = [
   { path:'files', component: UserFilesViewComponent },
@@ -63,7 +64,8 @@ var firebaseConfig = {
     SignUpComponent,
     ForgotPasswordComponent,
     VerifyEmailComponent,
-    DashboardComponent
+    DashboardComponent,
+    DropzoneDirective
   ],
   imports: [
     BrowserModule,

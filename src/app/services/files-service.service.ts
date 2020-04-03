@@ -1,16 +1,14 @@
 import { Injectable } from '@angular/core';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import {AngularFireAuth} from '@angular/fire/auth'
+import {File} from '../models/file';
 
-export class File{
-  body: string;
-}
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class FilesServiceService {
+export class FilesService {
   files: AngularFireList<File> = null;
   userId: string;
 
@@ -27,7 +25,9 @@ export class FilesServiceService {
    }
 
     createFile(file: File){
+      this.files = this.getFilesList()
       this.files.push(file);
     }
 
+  
 }
