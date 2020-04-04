@@ -26,6 +26,8 @@ import { ForgotPasswordComponent } from './components/user/forgot-password/forgo
 import { VerifyEmailComponent } from './components/user/verify-email/verify-email.component';
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
 import { DropzoneDirective } from './directives/dropzone.directive';
+import { UploaderComponent } from './components/files/upload/uploader/uploader.component';
+import { UploadTaskComponent } from './components/files/upload/upload-task/upload-task.component';
 
 const appRoutes: Routes = [
   { path:'files', component: UserFilesViewComponent },
@@ -35,7 +37,8 @@ const appRoutes: Routes = [
   { path: 'register-user', component: SignUpComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
-  { path: 'verify-email-address', component: VerifyEmailComponent }
+  { path: 'verify-email-address', component: VerifyEmailComponent },
+  { path: 'upload', component: UploaderComponent}
 ];
 var firebaseConfig = {
   apiKey: "AIzaSyCvT1c0Ati0h5xavww9tIib8uWNrjnoQXk",
@@ -65,7 +68,9 @@ var firebaseConfig = {
     ForgotPasswordComponent,
     VerifyEmailComponent,
     DashboardComponent,
-    DropzoneDirective
+    DropzoneDirective,
+    UploaderComponent,
+    UploadTaskComponent
   ],
   imports: [
     BrowserModule,
