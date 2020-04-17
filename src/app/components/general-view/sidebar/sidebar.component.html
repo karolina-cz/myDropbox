@@ -1,18 +1,8 @@
-
-    <!-- Sidebar -->
-    <nav id="sidebar">
-        <div class="sidebar-header">
-            <h3>My Dropbox</h3>
-        </div>
-
-        <ul class="list-unstyled components">
-            <li>
-                <a  >Home</a>
-            </li>
-            <li>
-                <a routerLink="/files">Files</a>
-            </li>
-            
-        </ul>
-    </nav>
-
+<nav id="sidebar">
+        <mat-toolbar color ="primary"> <h3>My Dropbox</h3> </mat-toolbar>
+        <mat-nav-list>
+            <mat-list-item><a style = "color:white;" routerLink = "/main">Home</a></mat-list-item>
+            <mat-list-item><a style = "color:white;" routerLink = "/main">Files</a></mat-list-item>
+        </mat-nav-list>
+    
+</nav>

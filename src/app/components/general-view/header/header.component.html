@@ -5,10 +5,17 @@
             <li class="active">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown" appDropdown>
-                      <a class="dropdown-toggle" role="button">Account <span class="caret"></span></a>
+                      <a class="dropdown-toggle" role="button" mat-button>Account <span class="caret"></span></a>
                       <ul class="dropdown-menu">
-                        <li><a routerLink ="register-user">Sign up</a></li>
-                        <li><a  routerLink ="sign-in">Log in</a></li>
+                        <li>
+                                <mat-option (click)="onCreateSignUp()"> 
+                                  Sign up
+                                </mat-option>
+                        </li>
+                            <mat-option (click)="onCreateLogin()">
+                                 Log in
+                            </mat-option>
+                        <li>
                       </ul>
                     </li>
                   </ul>

@@ -3,10 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MainFrameComponent } from './components/general-view/main-frame/main-frame.component';
 import { SidebarComponent } from './components/general-view/sidebar/sidebar.component';
-import { SidebarElementComponent } from './components/general-view/sidebar/sidebar-element/sidebar-element.component';
 import { HeaderComponent } from './components/general-view/header/header.component';
 import { AccountViewComponent } from './components/user/account-view/account-view.component';
-import { PreLoginViewComponent } from './components/general-view/pre-login-view/pre-login-view.component';
 import { UserMainViewComponent } from './components/user/user-main-view/user-main-view.component';
 import { UserFilesViewComponent } from './components/files/user-files-view/user-files-view.component';
 import { FileManagementSidebarComponent } from './components/files/user-files-view/file-management-sidebar/file-management-sidebar.component';
@@ -24,9 +22,6 @@ import { SignUpComponent } from './components/user/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/user/forgot-password/forgot-password.component';
 import { VerifyEmailComponent } from './components/user/verify-email/verify-email.component';
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
-import { DropzoneDirective } from './directives/dropzone.directive';
-import { UploaderComponent } from './components/files/upload/uploader/uploader.component';
-import { UploadTaskComponent } from './components/files/upload/upload-task/upload-task.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //Angular Material Components
@@ -71,7 +66,6 @@ const appRoutes: Routes = [
   { path: 'dashboard', component: DashboardComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
-  { path: 'upload', component: UploaderComponent},
   { path: 'main', component: MainFrameComponent}
 ];
 var firebaseConfig = {
@@ -90,10 +84,8 @@ var firebaseConfig = {
     AppComponent,
     MainFrameComponent,
     SidebarComponent,
-    SidebarElementComponent,
     HeaderComponent,
     AccountViewComponent,
-    PreLoginViewComponent,
     UserMainViewComponent,
     UserFilesViewComponent,
     FileManagementSidebarComponent,
@@ -102,9 +94,6 @@ var firebaseConfig = {
     ForgotPasswordComponent,
     VerifyEmailComponent,
     DashboardComponent,
-    DropzoneDirective,
-    UploaderComponent,
-    UploadTaskComponent,
     DropdownDirective
   ],
   imports: [
@@ -150,6 +139,10 @@ var firebaseConfig = {
   ],
   providers: [AuthService
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: 
+  [SignUpComponent,
+    SignInComponent
+  ]
 })
 export class AppModule { }
