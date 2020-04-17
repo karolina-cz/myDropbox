@@ -1,9 +1,17 @@
-<div class="row-1">
-    <nav class="navbar navbar-default" style ="background-color: white; border-color: white;" >
+
+    <nav class="navbar navbar-default" style ="background-color: white; border-color:white;" >
     <div class="container-fluid">
         <ul class="nav navbar-right">
             <li class="active">
-                <a routerLink="/account">My Account</a></li>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown" appDropdown>
+                      <a class="dropdown-toggle" role="button">Account <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a routerLink ="register-user">Sign up</a></li>
+                        <li><a  routerLink ="sign-in">Log in</a></li>
+                      </ul>
+                    </li>
+                  </ul>
         </ul>
         <form class="navbar-form navbar-right" action="/action_page.php">
             <div class="input-group">
@@ -17,4 +25,3 @@
         </form>
     </div>
     </nav>
-</div>

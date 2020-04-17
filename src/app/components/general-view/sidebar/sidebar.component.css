@@ -1,11 +1,8 @@
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
-.wrapper {
-    display: flex;
-    align-items: stretch;
-}
+
 
 #sidebar.active {
-    margin-left: -250px;
+    width: inherit;
 }
 
 a[data-toggle="collapse"] {
@@ -43,8 +40,7 @@ a, a:hover, a:focus {
 
 #sidebar {
     /* don't forget to add all the previously mentioned styles here too */
-    min-width: 215px;
-    max-width: 215px;
+    width: inherit;
     min-height: 100vh;
     background: #7386D5;
     color: #fff;

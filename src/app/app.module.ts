@@ -60,6 +60,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { DropdownDirective } from './directives/dropdown.directive';
 
 const appRoutes: Routes = [
   { path:'files', component: UserFilesViewComponent },
@@ -103,7 +104,8 @@ var firebaseConfig = {
     DashboardComponent,
     DropzoneDirective,
     UploaderComponent,
-    UploadTaskComponent
+    UploadTaskComponent,
+    DropdownDirective
   ],
   imports: [
     BrowserModule,
