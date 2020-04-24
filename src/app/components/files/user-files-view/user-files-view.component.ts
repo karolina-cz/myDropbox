@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faFile} from '@fortawesome/free-solid-svg-icons';
-import {File} from '../../../models/file';
+import {File} from '../../../shared/models/file';
 
 @Component({
   selector: 'app-user-files-view',

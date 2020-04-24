@@ -55,7 +55,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { DropdownDirective } from './directives/dropdown.directive';
+import { DropdownDirective } from './shared/directives/dropdown.directive';
 
 //guards
 import {AuthGuard} from './shared/guard/auth.guard';
