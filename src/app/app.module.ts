@@ -57,14 +57,14 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { DropdownDirective } from './directives/dropdown.directive';
 
+//guards
+import {AuthGuard} from './shared/guard/auth.guard';
+
 const appRoutes: Routes = [
   { path:'files', component: UserFilesViewComponent },
   { path:'account', component: AccountViewComponent },
   { path: '', redirectTo: '/main', pathMatch: 'full' },
-  { path: 'sign-in', component: SignInComponent },
-  { path: 'register-user', component: SignUpComponent },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'main', component: MainFrameComponent}
 ];

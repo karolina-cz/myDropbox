@@ -15,4 +15,13 @@ export class SignInComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  forgotPassword(){
+    this.authService.ForgotPasswordClickedEmitter.next (true);
+    console.log("password clicked");
+  }
+
+  test(email, password){
+    console.log(email,password);
+  }
+
 }

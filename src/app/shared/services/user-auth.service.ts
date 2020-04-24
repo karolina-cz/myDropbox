@@ -1,29 +1,16 @@
-import { Injectable, NgZone, EventEmitter } from '@angular/core';
+import { Injectable, NgZone } from '@angular/core';
 import { User } from "../models/user";
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from "@angular/fire/auth";
 import { AngularFirestore, AngularFirestoreDocument } from '@angular/fire/firestore';
 import { Router } from "@angular/router";
-import { BehaviorSubject } from 'rxjs';
+
 @Injectable({
   providedIn: 'root'
 })
 
 export class AuthService {
-   actionCodeSettings = {
-    // URL you want to redirect back to. The domain (www.example.com) for this
-    // URL must be whitelisted in the Firebase Console.
-    url: 'http://localhost:4200/main',
-    // This must be true.
-    handleCodeInApp: true,
-    //dynamicLinkDomain: 'example.page.link'
-  };
-
   userData: any; // Save logged in user data
-
-  ForgotPasswordClickedEmitter: BehaviorSubject<boolean> = new BehaviorSubject(false);
-
-  AuthSuccessEmitted: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
@@ -47,11 +34,11 @@ export class AuthService {
 
   // Sign in with email/password
   SignIn(email, password) {
-    console.log(email,password);
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.AuthSuccessEmitted.next (true);
+        this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
+        });
         this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message)
@@ -64,8 +51,7 @@ export class AuthService {
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
-        console.log("uzytkownik dodany");
-        this.SendVerificationMail(result.user.email);
+        this.SendVerificationMail(result.user);
         this.SetUserData(result.user);
 
       }).catch((error) => {
@@ -74,18 +60,12 @@ export class AuthService {
   }
 
   //Send email verfificaiton when new user sign up
-  SendVerificationMail(email) {
-    
-    return this.afAuth.sendSignInLinkToEmail(email,this.actionCodeSettings )
+  SendVerificationMail(user) {
+    return user.sendEmailVerification()
     .then(() => {
-      this.AuthSuccessEmitted.next (true);
-      this.router.navigate(['dashboard']);
-      console.log(email);
-    }).catch((error) => {
-      window.alert(error)
+      this.router.navigate(['verify-email-address']);
     })
   }
-
 
   // Reset Forggot password
   ForgotPassword(passwordResetEmail) {
@@ -100,7 +80,7 @@ export class AuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user'));
-    return (user !== null ) ? true : false;
+    return (user !== null && user.emailVerified !== false) ? true : false;
   }
 
   // Sign in with Google
@@ -112,9 +92,9 @@ export class AuthService {
   AuthLogin(provider) {
     return this.afAuth.signInWithPopup(provider)
     .then((result) => {
-        this.AuthSuccessEmitted.next (true);
+       this.ngZone.run(() => {
           this.router.navigate(['dashboard']);
-        
+        })
       this.SetUserData(result.user);
     }).catch((error) => {
       window.alert(error)
@@ -142,12 +122,8 @@ export class AuthService {
   SignOut() {
     return this.afAuth.signOut().then(() => {
       localStorage.removeItem('user');
-      this.router.navigate(['main']);
+      this.router.navigate(['sign-in']);
     })
-  }
-
-  getUserUid(){
-    console.log( this.userData.uid);
   }
 
   FacebookAuth(){}

@@ -1,16 +1,16 @@
 <mat-card style = "width:inherit; height: inherit;">
   <mat-card-title >Sign up</mat-card-title>
   <mat-card-content>
-    <form >
+    <form onsubmit="return false">
       <p>
         <mat-form-field>
-          <input type="text" matInput placeholder="E-mail" formControlName="email" #userEmail required>
+          <input type="text" class="formControl" matInput placeholder="E-mail" formControlName="email" #userEmail required>
         </mat-form-field>
       </p>
 
       <p>
         <mat-form-field>
-          <input type="password" matInput placeholder="Password" formControlName="password" #userPwd required> 
+          <input type="password"  matInput placeholder="Password" formControlName="password" #userPwd required> 
         </mat-form-field>
       </p>
 
@@ -24,7 +24,8 @@
         <button class="btn googleBtn" (click)="authService.GoogleAuth()"> 
           Continue with Google</button>
       </div>
-    </form>
-
+  </form>
   </mat-card-content>
 </mat-card>
+
+
