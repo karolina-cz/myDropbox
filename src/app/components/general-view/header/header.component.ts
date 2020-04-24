@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogConfig} from '@angular/material/dialog';
 import {SignUpComponent} from '../../user/sign-up/sign-up.component';
 import { SignInComponent } from '../../user/sign-in/sign-in.component';
-import{AuthService} from '../../../services/user-auth.service';
+import{AuthService} from '../../../shared/services/user-auth.service';
 import { ForgotPasswordComponent } from '../../user/forgot-password/forgot-password.component';
 @Component({
   selector: 'app-header',

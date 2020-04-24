@@ -8,7 +8,7 @@ import { AccountViewComponent } from './components/user/account-view/account-vie
 import { UserMainViewComponent } from './components/user/user-main-view/user-main-view.component';
 import { UserFilesViewComponent } from './components/files/user-files-view/user-files-view.component';
 import { FileManagementSidebarComponent } from './components/files/user-files-view/file-management-sidebar/file-management-sidebar.component';
-import {AuthService} from './services/user-auth.service';
+import {AuthService} from './shared/services/user-auth.service';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import {Routes, RouterModule} from '@angular/router';

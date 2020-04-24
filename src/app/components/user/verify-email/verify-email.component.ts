@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import{AuthService} from '../../../services/user-auth.service';
+import{AuthService} from '../../../shared/services/user-auth.service';
 @Component({
   selector: 'app-verify-email',
   templateUrl: './verify-email.component.html',
