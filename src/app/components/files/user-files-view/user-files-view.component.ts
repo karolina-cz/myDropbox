@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { faFile} from '@fortawesome/free-solid-svg-icons';
-import {FilesService} from '../../../services/files-service.service';
 import {File} from '../../../models/file';
 
 @Component({
@@ -13,7 +12,7 @@ export class UserFilesViewComponent implements OnInit {
   testFile: File = {
     body: 'testowa wiadomosc'
   }
-  constructor( public filesService: FilesService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
