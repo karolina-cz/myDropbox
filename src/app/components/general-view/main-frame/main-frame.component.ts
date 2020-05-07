@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import {AuthService} from '../../../shared/services/user-auth.service'
 @Component({
   selector: 'app-main-frame',
@@ -6,10 +6,11 @@ import {AuthService} from '../../../shared/services/user-auth.service'
   styleUrls: ['./main-frame.component.css']
 })
 export class MainFrameComponent implements OnInit {
-
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, private changeDetection: ChangeDetectorRef) {
+  }
 
   ngOnInit(): void {
   }
+
 
 }

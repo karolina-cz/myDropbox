@@ -49,12 +49,11 @@ export class AuthService {
   SignIn(email, password) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
-        this.ngZone.run(() => {
-          this.router.navigate(['dashboard']);
-        });
         this.AuthSuccessEmitted.next (true);
         this.AuthCreateFileListEmitted.next (true);
         this.SetUserData(result.user);
+        //this.router.navigate(['dashboard']);
+        
       }).catch((error) => {
         window.alert(error.message)
       })
@@ -66,7 +65,6 @@ export class AuthService {
       .then((result) => {
         /* Call the SendVerificaitonMail() function when new user sign 
         up and returns promise */
-        console.log("uzytkownik dodany");
         this.SendVerificationMail(result.user.email);
         this.SetUserData(result.user);
 
@@ -81,8 +79,7 @@ export class AuthService {
     return this.afAuth.sendSignInLinkToEmail(email,this.actionCodeSettings )
     .then(() => {
       this.AuthSuccessEmitted.next (true);
-      this.router.navigate(['dashboard']);
-      console.log(email);
+      //this.router.navigate(['dashboard']);
     }).catch((error) => {
       window.alert(error)
     })
@@ -115,7 +112,7 @@ export class AuthService {
     return this.afAuth.signInWithPopup(provider)
     .then((result) => {
         this.AuthSuccessEmitted.next (true);
-          this.router.navigate(['dashboard']);
+        this.router.navigate(['dashboard']);
         
       this.SetUserData(result.user);
     }).catch((error) => {
