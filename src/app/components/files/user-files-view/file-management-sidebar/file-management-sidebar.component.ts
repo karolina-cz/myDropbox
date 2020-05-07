@@ -15,4 +15,8 @@ export class FileManagementSidebarComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onFileUploadClicked(){
+    
+  }
+
 }

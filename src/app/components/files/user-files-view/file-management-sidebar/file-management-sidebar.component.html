@@ -1,21 +1,21 @@
 
     <mat-list role="list">
         <mat-list-item role="listitem">
-            <a  href="#"> 
+            <button mat-button  (click) = "onFileUploadClicked()" style="color:#6d7fcc;"> 
                 <fa-icon [icon]="faFileUpload"></fa-icon>
                 Upload file
-            </a>
+            </button>
         </mat-list-item>
         <mat-list-item role="listitem">
-            <a href="#">
+            <button mat-button style="color:#6d7fcc;">
                 <fa-icon [icon]="faFolderOpen"></fa-icon>
                 Upload folder
-            </a>
+            </button>
         </mat-list-item>
         <mat-list-item role="listitem">
-            <a href="#">
+            <button mat-button style="color:#6d7fcc;">
                 <fa-icon [icon]="faFolderPlus"></fa-icon>
                 Create folder
-            </a>
+            </button>
         </mat-list-item>
       </mat-list>
