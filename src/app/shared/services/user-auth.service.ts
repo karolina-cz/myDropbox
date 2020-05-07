@@ -52,7 +52,7 @@ export class AuthService {
         this.AuthSuccessEmitted.next (true);
         this.AuthCreateFileListEmitted.next (true);
         this.SetUserData(result.user);
-        //this.router.navigate(['dashboard']);
+        //this.router.navigate(['main']);
         
       }).catch((error) => {
         window.alert(error.message)
@@ -112,7 +112,7 @@ export class AuthService {
     return this.afAuth.signInWithPopup(provider)
     .then((result) => {
         this.AuthSuccessEmitted.next (true);
-        this.router.navigate(['dashboard']);
+        //this.router.navigate(['dashboard']);
         
       this.SetUserData(result.user);
     }).catch((error) => {
