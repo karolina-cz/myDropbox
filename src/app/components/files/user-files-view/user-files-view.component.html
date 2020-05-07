@@ -2,24 +2,21 @@
             <tr>
                 <!--change this to add depending on current files numer-->
                 <th scope="row"></th>
-                <td>
+
+                <td *ngFor="let item of fileList ">
                     <p><fa-icon [icon]="faFile" size="3x"></fa-icon></p>
-                    <p>File1</p>
-                </td>
-                <td>
-                    <p><fa-icon [icon]="faFile" size="3x"></fa-icon></p>
-                    <p>File2</p>
-                </td>
-                <td>
-                    <p><fa-icon [icon]="faFile" size="3x"></fa-icon></p>
-                    <p>File3</p>
-                </td>
-                <td>
-                    <p>
-                        <fa-icon [icon]="faFile" size="3x" ></fa-icon>
-                    </p>
-                    <p>File4 </p>
-                </td>
+                    <a [href] = "downloadURLs[item] | async"  target="_blank" rel="noopener">{{item}}</a>
+                </td> 
+
               </tr>
         </table>
-  
+<input type = "file" (change) = "onFileSelected($event)">
+<button type="button" (click) = "onUpload()">Upload file</button>
+
+<!-- 
+<a [href]= "downloadURL | async" target="_blank" rel="noopener">download me</a> -->
+<!-- <button (click)="showURLList()  "type= "button"> show url list</button> -->
+
+
+<!-- <a [href]= "downloadURLs['abc.png'] |async" target="_blank" rel="noopener">download abc.png</a> to dziala -->
+<button type="button" (click) = "testIfDownloadURLsIsCreatedProperly()" >testIfDownloadURLsIsCreatedProperly</button>

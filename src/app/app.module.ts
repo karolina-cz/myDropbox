@@ -61,7 +61,7 @@ import { DropdownDirective } from './shared/directives/dropdown.directive';
 import {AuthGuard} from './shared/guard/auth.guard';
 
 const appRoutes: Routes = [
-  { path:'files', component: UserFilesViewComponent },
+  { path:'files', component: UserFilesViewComponent, canActivate: [AuthGuard] },
   { path:'account', component: AccountViewComponent },
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },

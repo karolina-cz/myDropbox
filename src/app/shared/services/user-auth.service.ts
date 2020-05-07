@@ -24,7 +24,7 @@ export class AuthService {
   ForgotPasswordClickedEmitter: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   AuthSuccessEmitted: BehaviorSubject<boolean> = new BehaviorSubject(false);
-
+  AuthCreateFileListEmitted :BehaviorSubject<boolean> = new BehaviorSubject(false);
   constructor(
     public afs: AngularFirestore,   // Inject Firestore service
     public afAuth: AngularFireAuth, // Inject Firebase auth service
@@ -47,10 +47,10 @@ export class AuthService {
 
   // Sign in with email/password
   SignIn(email, password) {
-    console.log(email,password);
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
         this.AuthSuccessEmitted.next (true);
+        this.AuthCreateFileListEmitted.next (true);
           this.router.navigate(['dashboard']);
         this.SetUserData(result.user);
       }).catch((error) => {
@@ -147,7 +147,7 @@ export class AuthService {
   }
 
   getUserUid(){
-    console.log( this.userData.uid);
+    return this.userData.uid;
   }
 
   FacebookAuth(){}
