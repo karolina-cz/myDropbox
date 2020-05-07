@@ -3,6 +3,7 @@ import {AngularFireStorage, AngularFireUploadTask} from '@angular/fire/storage';
 import{AuthService} from '../services/user-auth.service'
 import{AngularFireDatabase} from '@angular/fire/database'
 import { Observable } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,10 +14,13 @@ export class FilesManagerService {
   task: AngularFireUploadTask;
   fileList = [];
   downloadURLs = {};
+  UploadFileClickedEmitter: BehaviorSubject<boolean> = new BehaviorSubject(false);
   constructor(private storage: AngularFireStorage, private authService: AuthService, private db: AngularFireDatabase) { 
-    this.userUid = this.authService.getUserUid()
-    this.items = db.list('items').valueChanges();
-    this.itemsRef = db.list(`files/${this.userUid}`);
+   
+      this.userUid = this.authService.getUserUid()
+      this.items = db.list('items').valueChanges();
+      this.itemsRef = db.list(`files/${this.userUid}`);
+    
   }
 
   fileUpload(file){
@@ -28,6 +32,7 @@ export class FilesManagerService {
     // The main task
     this.task = this.storage.upload(path, file);
     //this.itemsRef.push({ name: file.name });
+    this.UploadFileClickedEmitter.next(true);
   }
 
 

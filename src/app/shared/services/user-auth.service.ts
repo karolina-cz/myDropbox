@@ -150,6 +150,7 @@ export class AuthService {
 
   getUserUid(){
     return this.userData.uid;
+    
   }
 
   FacebookAuth(){}

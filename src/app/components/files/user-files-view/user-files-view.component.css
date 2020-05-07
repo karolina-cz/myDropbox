@@ -1,0 +1,10 @@
+.two_chars{
+    font-family: monospace;
+    width: 2ch;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  .large{
+    font-size: 2em;
+  }

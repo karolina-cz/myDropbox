@@ -31,24 +31,31 @@ export class UserFilesViewComponent implements OnInit {
     const ref = this.storage.ref('undefined/isInverted.m');
     this.downloadURL = ref.getDownloadURL()
     this.items = filesManagerService.itemsRef
-    
+    this.filesManagerService.getFilesData().then(res => {
+      this.fileList = res
+      this.downloadURLs = this.filesManagerService.createDownloadURLsForAllFiles();
+      this.changeDetection.detectChanges();
+    });
   }
 
   ngOnInit(): void {
-    this.authSubscription = this.authService.AuthCreateFileListEmitted
-      .subscribe(value => {
-        if (value === true) {
-          console.log("Authorization successfull event emitted")
-          this.filesManagerService.getFilesData().then(res => {
-            this.fileList = res
-            this.downloadURLs = this.filesManagerService.createDownloadURLsForAllFiles();
-            this.changeDetection.detectChanges();
-          });
+    // this.authSubscription = this.authService.AuthCreateFileListEmitted
+    //   .subscribe(value => {
+    //     if (value === true) {
+    //       console.log("Authorization successfull event emitted")
+    //       this.filesManagerService.getFilesData().then(res => {
+    //         this.fileList = res
+    //         this.downloadURLs = this.filesManagerService.createDownloadURLsForAllFiles();
+    //         this.changeDetection.detectChanges();
+    //       });
           
-        }
-      });
+    //     }
+    //   });
 
   }
+  // testFileList(){
+  //   console.log(this.fileList)
+  // }
 
   onFileSelected(event) {
     this.selectedFile = event.target.files[0];

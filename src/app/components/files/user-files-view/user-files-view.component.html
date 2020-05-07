@@ -1,22 +1,32 @@
+<!-- <div class ="col-md-9">
 <table class="table">
             <tr>
-                <!--change this to add depending on current files numer-->
+                
                 <th scope="row"></th>
 
                 <td *ngFor="let item of fileList ">
                     <p><fa-icon [icon]="faFile" size="3x"></fa-icon></p>
-                    <a [href] = "downloadURLs[item] | async"  target="_blank" rel="noopener">{{item}}</a>
+                    <a  [href] = "downloadURLs[item] | async"  target="_blank" rel="noopener">{{item}}</a>
                 </td> 
 
               </tr>
         </table>
-<input type = "file" (change) = "onFileSelected($event)">
-<button type="button" (click) = "onUpload()">Upload file</button>
 
-<!-- 
-<a [href]= "downloadURL | async" target="_blank" rel="noopener">download me</a> -->
-<!-- <button (click)="showURLList()  "type= "button"> show url list</button> -->
+</div> -->
+<div class ="col-md-9">
+    <ul style="list-style-type:none;">
+        <li *ngFor="let item of fileList ">
+            <p>
+                <fa-icon [icon]="faFile" size="3x"></fa-icon>
+                <a  [href] = "downloadURLs[item] | async"  target="_blank" rel="noopener">   {{item}}</a>
+            </p>
+            
+        </li>
+                    
+        </ul>
+        <!-- <button type="button" (click) = "testFileList()">test file list </button> -->
+</div> 
 
-
-<!-- <a [href]= "downloadURLs['abc.png'] |async" target="_blank" rel="noopener">download abc.png</a> to dziala -->
-<button type="button" (click) = "testIfDownloadURLsIsCreatedProperly()" >testIfDownloadURLsIsCreatedProperly</button>
+<div class= "col-md-3">
+    <app-file-management-sidebar></app-file-management-sidebar>
+</div>
