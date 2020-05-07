@@ -49,9 +49,11 @@ export class AuthService {
   SignIn(email, password) {
     return this.afAuth.signInWithEmailAndPassword(email, password)
       .then((result) => {
+        this.ngZone.run(() => {
+          this.router.navigate(['dashboard']);
+        });
         this.AuthSuccessEmitted.next (true);
         this.AuthCreateFileListEmitted.next (true);
-          this.router.navigate(['dashboard']);
         this.SetUserData(result.user);
       }).catch((error) => {
         window.alert(error.message)
