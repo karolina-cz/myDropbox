@@ -13,8 +13,6 @@ export class UploadFileComponent implements OnInit {
   ngOnInit(): void {
   }
 
- 
-
   onFileSelected(event) {
     this.selectedFile = event.target.files[0];
   }

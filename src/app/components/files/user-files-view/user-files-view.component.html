@@ -1,50 +1,4 @@
-<!-- 
-<div layout="row" layout-align="start center">
-<mat-grid-list cols="4" rowHeight="1:1">
-    <mat-grid-tile
-        [colspan]="3"
-        [rowspan]="1" 
-        layout-align="start center">
-        <ul style="list-style-type:none;">
-            <li *ngFor="let item of fileList ">
-                <p>
-                    <fa-icon [icon]="faFile" size="3x"></fa-icon>
-                    <a  [href] = "downloadURLs[item] | async"  target="_blank" rel="noopener">   {{item}}</a>
-                </p>
-                
-            </li>
-                        
-        </ul>
-    </mat-grid-tile>
-    <mat-grid-tile
-        [colspan]="1"
-        [rowspan]="1">
-        <app-file-management-sidebar></app-file-management-sidebar>
-    </mat-grid-tile>
-  </mat-grid-list>
-</div> -->
-
-<!-- <div layout="row">
-    <div flex>
-        <ul style="list-style-type:none;">
-            <li *ngFor="let item of fileList ">
-                <p>
-                    <fa-icon [icon]="faFile" size="3x"></fa-icon>
-                    <a  [href] = "downloadURLs[item] | async"  target="_blank" rel="noopener">   {{item}}</a>
-                </p>
-                
-            </li>
-                        
-        </ul>
-    </div>
-
-    <div flex>
-        <app-file-management-sidebar></app-file-management-sidebar>
-    </div>
-
-  </div> -->
-
-  <div class="container" fxLayout="row" style="margin-top: 2%;" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+<div class="container" fxLayout="row" style="margin-top: 2%;" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
     <div fxFlex="80%">
         <ul style="list-style-type:none;">
             <li *ngFor="let item of fileList ">
@@ -53,11 +7,10 @@
                     <a  [href] = "downloadURLs[item] | async"  target="_blank" rel="noopener">   {{item}}</a>
                 </p>
                 
-            </li>
-                        
+            </li>       
         </ul>
     </div>
     <div fxFlex="20%">
         <app-file-management-sidebar></app-file-management-sidebar>
     </div>
-  </div>
+</div>

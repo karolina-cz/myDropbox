@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MainFrameComponent } from './components/general-view/main-frame/main-frame.component';
-import { AccountViewComponent } from './components/user/account-view/account-view.component';
 import { UserMainViewComponent } from './components/user/user-main-view/user-main-view.component';
 import { UserFilesViewComponent } from './components/files/user-files-view/user-files-view.component';
 import { FileManagementSidebarComponent } from './components/files/user-files-view/file-management-sidebar/file-management-sidebar.component';
@@ -19,7 +18,6 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { SignInComponent } from './components/user/sign-in/sign-in.component';
 import { SignUpComponent } from './components/user/sign-up/sign-up.component';
 import { ForgotPasswordComponent } from './components/user/forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './components/user/verify-email/verify-email.component';
 import { DashboardComponent } from './components/user/dashboard/dashboard.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -67,10 +65,8 @@ import{FlexLayoutModule} from '@angular/flex-layout'
 
 const appRoutes: Routes = [
   { path:'files', component: UserFilesViewComponent, canActivate: [AuthGuard] },
-  { path:'account', component: AccountViewComponent },
   { path: '', redirectTo: '/main', pathMatch: 'full' },
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
-  { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'main', component: MainFrameComponent}
 ];
 var firebaseConfig = {
@@ -88,14 +84,12 @@ var firebaseConfig = {
   declarations: [
     AppComponent,
     MainFrameComponent,
-    AccountViewComponent,
     UserMainViewComponent,
     UserFilesViewComponent,
     FileManagementSidebarComponent,
     SignInComponent,
     SignUpComponent,
     ForgotPasswordComponent,
-    VerifyEmailComponent,
     DashboardComponent,
     UploadFileComponent,
     DropdownDirective,
