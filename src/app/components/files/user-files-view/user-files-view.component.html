@@ -1,16 +1,16 @@
-<div class="container" fxLayout="row" style="margin-top: 2%;" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
+<div class="container" fxLayout="row" fxLayout.xs="column" style="margin-top: 2%;" fxLayoutWrap fxLayoutGap="0.5%" fxLayoutAlign="center">
     <div fxFlex="80%">
         <ul style="list-style-type:none;">
             <li *ngFor="let item of fileList ">
                 <p>
                     <fa-icon [icon]="faFile" size="3x"></fa-icon>
-                    <a  [href] = "downloadURLs[item] | async"  target="_blank" rel="noopener">   {{item}}</a>
+                    <a  style="color:steelblue"[href] = "downloadURLs[item] | async"  target="_blank" rel="noopener">   {{item}}</a>
                 </p>
                 
             </li>       
         </ul>
     </div>
-    <div fxFlex="20%">
+    <div fxFlex="20%" >
         <app-file-management-sidebar></app-file-management-sidebar>
     </div>
 </div>
