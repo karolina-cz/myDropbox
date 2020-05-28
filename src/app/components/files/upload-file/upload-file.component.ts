@@ -17,6 +17,7 @@ export class UploadFileComponent implements OnInit {
     this.selectedFile = event.target.files[0];
   }
   onUpload() {
+    if(this.selectedFile !== null)
     this.filesManagerService.fileUpload(this.selectedFile)
 
   }

@@ -34,7 +34,6 @@ export class AuthService {
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe(user => {
-      console.log(user)
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
@@ -110,17 +109,27 @@ export class AuthService {
 
   // Auth logic to run auth providers
   AuthLogin(provider) {
-    return this.afAuth.signInWithPopup(provider)
+    return this.afAuth.signInWithRedirect(provider)
     .then((result) => {
         this.AuthSuccessEmitted.next (true);
         //this.router.navigate(['dashboard']);
-        
-      this.SetUserData(result.user);
+        this.getToken();
     }).catch((error) => {
       window.alert(error)
     })
   }
-
+  getToken(){
+  this.afAuth.getRedirectResult().then((result) => {
+    if (result.credential) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      const user = result.user;
+      this.SetUserData(user);
+      // ...
+    }
+    // The signed-in user info.
+  }).catch(function(error) {
+  });
+}
   /* Setting up user data when sign in with username/password, 
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
@@ -147,23 +156,9 @@ export class AuthService {
   }
 
   getUserUid(){
-    if(typeof this.userData !== 'undefined')
-    return this.userData.uid;
-    else
-    return null;
+    const user = JSON.parse(localStorage.getItem('user'));
+    return user.uid;
   }
-  //dashboard tests
-  async testGetUserUid(){
-    this.userData = this.afAuth.authState.toPromise();
-    console.log('jestem w testgetuseruid')
-    return this.userData.uid;
-  }
-  getUserUid2(){
-    this.testGetUserUid().then(() =>{
-      console.log(this.userData.uid)
-      return this.userData.uid;
-    })
-  }
+  
 
-  FacebookAuth(){}
 }

@@ -20,7 +20,6 @@ export class FilesManagerService {
       this.userUid = this.authService.getUserUid()
       this.items = db.list('items').valueChanges();
       this.itemsRef = db.list(`files/${this.userUid}`);
-    
   }
 
   fileUpload(file){
@@ -47,7 +46,6 @@ export class FilesManagerService {
         this.fileList.push(itemRef.name.toString())
       });
     }).catch(function(error) {
-  // Uh-oh, an error occurred!
     });
      return this.fileList;
 
@@ -61,8 +59,5 @@ export class FilesManagerService {
     return this.downloadURLs;
   }
 
-  addToFileList(){
-    console.log("add to file list active");
-  }
 
 }

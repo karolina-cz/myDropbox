@@ -25,12 +25,5 @@ export class UserFilesViewComponent implements OnInit {
 
   }
 
-  onFileSelected(event) {
-    this.selectedFile = event.target.files[0];
-  }
-  onUpload() {
-    this.filesManagerService.fileUpload(this.selectedFile)
-
-  }
 
 }

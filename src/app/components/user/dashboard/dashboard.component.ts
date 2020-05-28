@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AuthService} from '../../../shared/services/user-auth.service'
+import {Router} from '@angular/router'
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
@@ -7,17 +8,19 @@ import {AuthService} from '../../../shared/services/user-auth.service'
 })
 export class DashboardComponent implements OnInit {
   userUid: any;
-  constructor(public authService: AuthService) { 
-    authService.testGetUserUid().then((res)=>
-    {   console.log(res)
-        this.userUid = res;
-    });
+  constructor(public authService: AuthService, private router: Router) { 
+    this.userUid = authService.getUserUid();
   }
 
   ngOnInit(): void {
   }
   getUserUid(){
     this.authService.getUserUid();
+  }
+
+  OnComponentReload(){
+    this.userUid = 'hehe'
+    location.reload()
   }
 
 }

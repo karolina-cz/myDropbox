@@ -21,6 +21,7 @@ export class FileManagementSidebarComponent implements OnInit {
     .subscribe(value => {
       if (value === true) {
           this.closeAllDialogs() 
+          //location.reload()
           // should put focus() on input 
       }
   });
@@ -29,8 +30,8 @@ export class FileManagementSidebarComponent implements OnInit {
   onFileUploadClicked(){
     const dialogConfig = new MatDialogConfig();
     dialogConfig.autoFocus = true;
-    dialogConfig.height = "35%";
-    dialogConfig.width = "40%";
+    dialogConfig.height = "190px";
+    dialogConfig.width = "280px";
     this.dialog.open(UploadFileComponent, dialogConfig);
   }
 
