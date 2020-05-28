@@ -34,7 +34,7 @@ export class UserFilesViewComponent implements OnInit {
     this.filesManagerService.getFilesData().then(res => {
       this.fileList = res
       this.downloadURLs = this.filesManagerService.createDownloadURLsForAllFiles();
-      this.changeDetection.detectChanges();
+      //this.changeDetection.detectChanges();
     });
   }
 

@@ -60,6 +60,12 @@ import { DropdownDirective } from './shared/directives/dropdown.directive';
 
 //guards
 import {AuthGuard} from './shared/guard/auth.guard';
+import { SidebarMaterialComponent } from './components/general-view/sidebar-material/sidebar-material.component';
+import { LayoutModule } from '@angular/cdk/layout';
+
+
+//flex
+import{FlexLayoutModule} from '@angular/flex-layout'
 
 const appRoutes: Routes = [
   { path:'files', component: UserFilesViewComponent, canActivate: [AuthGuard] },
@@ -96,11 +102,13 @@ var firebaseConfig = {
     VerifyEmailComponent,
     DashboardComponent,
     UploadFileComponent,
-    DropdownDirective
+    DropdownDirective,
+    SidebarMaterialComponent
   ],
   imports: [
     BrowserModule,
     FontAwesomeModule,
+    FlexLayoutModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule, // firestore
@@ -137,7 +145,8 @@ var firebaseConfig = {
     MatSnackBarModule,
     MatTableModule,
     MatSortModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    LayoutModule
   ],
   providers: [AuthService
   ],

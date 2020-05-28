@@ -34,6 +34,7 @@ export class AuthService {
     /* Saving user data in localstorage when 
     logged in and setting up null when logged out */
     this.afAuth.authState.subscribe(user => {
+      console.log(user)
       if (user) {
         this.userData = user;
         localStorage.setItem('user', JSON.stringify(this.userData));
@@ -42,7 +43,7 @@ export class AuthService {
         localStorage.setItem('user', null);
         JSON.parse(localStorage.getItem('user'));
       }
-    })
+    }, )
   }
 
   // Sign in with email/password
@@ -146,8 +147,22 @@ export class AuthService {
   }
 
   getUserUid(){
+    if(typeof this.userData !== 'undefined')
     return this.userData.uid;
-    
+    else
+    return null;
+  }
+  //dashboard tests
+  async testGetUserUid(){
+    this.userData = this.afAuth.authState.toPromise();
+    console.log('jestem w testgetuseruid')
+    return this.userData.uid;
+  }
+  getUserUid2(){
+    this.testGetUserUid().then(() =>{
+      console.log(this.userData.uid)
+      return this.userData.uid;
+    })
   }
 
   FacebookAuth(){}
