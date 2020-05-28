@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { MainFrameComponent } from './components/general-view/main-frame/main-frame.component';
-import { HeaderComponent } from './components/general-view/header/header.component';
 import { AccountViewComponent } from './components/user/account-view/account-view.component';
 import { UserMainViewComponent } from './components/user/user-main-view/user-main-view.component';
 import { UserFilesViewComponent } from './components/files/user-files-view/user-files-view.component';
@@ -89,7 +88,6 @@ var firebaseConfig = {
   declarations: [
     AppComponent,
     MainFrameComponent,
-    HeaderComponent,
     AccountViewComponent,
     UserMainViewComponent,
     UserFilesViewComponent,
